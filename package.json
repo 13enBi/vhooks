@@ -1,0 +1,68 @@
+{
+	"name": "vhooks",
+	"version": "0.0.1",
+	"description": "Vue Hooks",
+	"main": "lib/index.js",
+	"module": "esm/index.js",
+	"types": "lib/index.d.ts",
+	"typings": "lib/index.d.ts",
+	"keywords": [
+		"vue-hooks"
+	],
+	"files": [
+		"lib/",
+		"esm/"
+	],
+	"author": {
+		"name": "13enBi"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/13enBi/vhooks"
+	},
+	"scripts": {
+		"dev": "vite",
+		"test": "jest",
+		"build:cjs": "tsc",
+		"build:es": "tsc -m esNext --outDir esm",
+		"build": "yarn clean && yarn build:cjs && yarn build:es",
+		"clean": "rimraf lib esm"
+	},
+	"dependencies": {
+		"@types/axios": "^0.14.0",
+		"@types/lodash.debounce": "^4.0.6",
+		"@types/lodash.throttle": "^4.1.6",
+		"axios": "^0.20.0",
+		"intersection-observer": "^0.11.0",
+		"lodash.debounce": "^4.0.8",
+		"lodash.throttle": "^4.1.1",
+		"resize-observer-polyfill": "^1.5.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.3",
+		"@babel/preset-env": "^7.12.1",
+		"@babel/preset-typescript": "^7.3.3",
+		"@types/jest": "^26.0.14",
+		"@vue/compiler-sfc": "^3.0.0-rc.1",
+		"@vue/test-utils": "^1.0.0-beta.29",
+		"ant-design-vue": "^2.0.0-beta.10",
+		"babel-jest": "^26.6.0",
+		"babel-loader": "^8.0.6",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+		"babel-preset-vue": "^2.0.2",
+		"eslint": "^6.2.2",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-config-prettier": "^6.1.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-prettier": "^3.1.0",
+		"jest": "^26.6.0",
+		"lint-staged": "^9.2.3",
+		"prismjs": "^1.17.1",
+		"rimraf": "^3.0.0",
+		"typescript": "^4.0.3",
+		"vite": "^1.0.0-rc.4",
+		"vue": "^3.0.0-rc.1",
+		"vue-router": "^4.0.0-beta.13"
+	},
+	"license": "ISC"
+}
