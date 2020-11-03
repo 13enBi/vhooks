@@ -1,5 +1,5 @@
 {
-	"name": "vhooks",
+	"name": "@13enbi/vhooks",
 	"version": "0.0.1",
 	"description": "Vue Hooks",
 	"main": "lib/index.js",
@@ -29,16 +29,17 @@
 		"clean": "rimraf lib esm"
 	},
 	"dependencies": {
-		"@types/axios": "^0.14.0",
-		"@types/lodash.debounce": "^4.0.6",
-		"@types/lodash.throttle": "^4.1.6",
 		"axios": "^0.20.0",
 		"intersection-observer": "^0.11.0",
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
+		"mitt": "^2.1.0",
 		"resize-observer-polyfill": "^1.5.1"
 	},
 	"devDependencies": {
+		"@types/axios": "^0.14.0",
+		"@types/lodash.debounce": "^4.0.6",
+		"@types/lodash.throttle": "^4.1.6",
 		"@babel/core": "^7.12.3",
 		"@babel/preset-env": "^7.12.1",
 		"@babel/preset-typescript": "^7.3.3",

@@ -12,6 +12,7 @@ import useInterval from "./view/useInterval";
 import useInViewport from "./view/useInViewport";
 import useVirtualList from "./view/useVirtualList";
 import useRequest from "./view/useRequest/index";
+import useLazyLoad from "./view/useLazyLoad";
 
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -49,6 +50,7 @@ const router = createRouter({
 		{ path: "/useInViewport", component: useInViewport },
 		{ path: "/useVirtualList", component: useVirtualList },
 		{ path: "/useRequest", component: useRequest },
+		{ path: "/useLazyLoad", component: useLazyLoad },
 	],
 });
 

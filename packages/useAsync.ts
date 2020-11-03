@@ -83,7 +83,7 @@ const userAsync = <T>(service: () => Promise<T>, options: WatchOptions & AsyncCo
 
 	immediate && run();
 
-	deps && watch(deps, async () => await handler(++currId), watchOpts);
+	deps && watch(deps, async () => await handler(), watchOpts);
 
 	return extend(toRefs(status), { run, cancel, mutation });
 };

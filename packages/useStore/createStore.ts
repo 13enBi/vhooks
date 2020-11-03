@@ -1,6 +1,6 @@
 import { reactive, computed, readonly, App, inject } from "vue";
 
-export type CreateStoreOpts = { isReadonly: boolean };
+export type CreateStoreOpts = { strict: boolean };
 export type GetterTree<T> = Record<string, (state: T) => any>;
 export type MutationsTree<T> = Record<string, (state: T, payload?: any) => void>;
 
@@ -24,7 +24,7 @@ export const createStore = <S extends object>(
 		getters?: GetterTree<S>;
 		mutations?: MutationsTree<S>;
 	},
-	{ isReadonly }: CreateStoreOpts = { isReadonly: true }
+	{ strict }: CreateStoreOpts = { strict: false }
 ) => {
 	const state = reactive(_state) as S;
 
@@ -39,7 +39,7 @@ export const createStore = <S extends object>(
 	);
 
 	const store = {
-		state: isReadonly ? readonly(state) : state,
+		state: strict ? readonly(state) : state,
 		getters: reactive(getters),
 		commit,
 	};

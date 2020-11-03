@@ -15,8 +15,7 @@ export type EventOption = {
 	target?: Target;
 };
 
-// 键盘事件 keyCode 别名
-const aliasKeyCodeMap: any = {
+const aliasKeyCodeMap = {
 	esc: 27,
 	tab: 9,
 	enter: 13,
@@ -28,7 +27,6 @@ const aliasKeyCodeMap: any = {
 	delete: [8, 46],
 };
 
-// 键盘事件 key 别名
 const aliasKeyMap = {
 	esc: "Escape",
 	tab: "Tab",
@@ -41,8 +39,7 @@ const aliasKeyMap = {
 	delete: ["Backspace", "Delete"],
 };
 
-// 修饰键
-const modifierKey: any = {
+const modifierKey = {
 	ctrl: (event: KeyboardEvent) => event.ctrlKey,
 	shift: (event: KeyboardEvent) => event.shiftKey,
 	alt: (event: KeyboardEvent) => event.altKey,

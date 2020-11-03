@@ -3,6 +3,7 @@ import useCache, { CacheKey } from "../useCache";
 import { AsyncConfig, AsyncResult } from "../useAsync";
 import { CreateInstance } from "./createInstance";
 import { WrapRef } from "../utils";
+import { AxiosRequestConfig } from "axios";
 
 export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> = AsyncConfig & {
 	immediate?: boolean;
@@ -19,6 +20,7 @@ export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> 
 		result: RequestResult<Params, CustomeResult>,
 		config?: Readonly<Omit<RequestConfig<Params, CustomeConfig>, "formatResult">>
 	): any;
+	axiosConfig?: AxiosRequestConfig;
 } & CustomeConfig;
 
 export type RequestResult<Params = any, CustomeResult = {}> = Omit<AsyncResult, "isError" | "run"> & {
@@ -39,6 +41,7 @@ export type DefaultConfig = RequestConfig &
 			| "cacheStore"
 			| "onSuccess"
 			| "onError"
+			| "axiosConfig"
 		>
 	>;
 

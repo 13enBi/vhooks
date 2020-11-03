@@ -1,25 +1,33 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "jsx": "preserve",
-        "allowUmdGlobalAccess": true,
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
-        "esModuleInterop": true,
-        "declaration": true,
-        "pretty": true,
-        "rootDir": "./",
-        "sourceMap": false,
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "noImplicitAny": false,
-        "noFallthroughCasesInSwitch": true,
-        "outDir": "lib",
-        "lib": ["dom", "dom.iterable", "esnext"]
-    },
-    "exclude": ["node_modules", "lib", "esm", "**/__tests__/**/*"]
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"jsx": "preserve",
+		"allowUmdGlobalAccess": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"esModuleInterop": true,
+		"declaration": true,
+		"pretty": true,
+		"rootDir": "./packages",
+		"sourceMap": false,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": false,
+		"noFallthroughCasesInSwitch": true,
+		"outDir": "lib",
+		"lib": ["dom", "dom.iterable", "esnext"]
+	},
+	"exclude": [
+		"node_modules",
+		"lib",
+		"esm",
+		"**/__tests__/**/*",
+		"example",
+		"script",
+		"vite.config.ts"
+	]
 }

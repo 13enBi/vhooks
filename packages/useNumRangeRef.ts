@@ -11,13 +11,10 @@ const useNumRangeRef = (num: number, { max, min }: { max: WrapRef<number>; min: 
 	}
 
 	return customRef((track, trigger) => {
-		max = parseFloat(unref(max) as any);
-		min = parseFloat(unref(min) as any);
-
 		return {
 			get: () => (track(), num),
 			set(newNum) {
-				num = Math.min(max as number, Math.max(min as number, newNum));
+				num = Math.min(unref(max), Math.max(unref(min), newNum));
 				trigger();
 			},
 		};

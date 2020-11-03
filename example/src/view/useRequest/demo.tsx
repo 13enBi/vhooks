@@ -133,7 +133,10 @@ export const Demo5 = defineComponent(() => {
 		<>
 			<div>
 				<p>input quickly to see the effect</p>
-				<input placeholder="Select Emails" onInput={(e: any) => run(e.target.value)} />
+				<input
+					placeholder="Select Emails"
+					onInput={(e: any) => run(e.target.value).then(() => message.success("1229427818"))}
+				/>
 				{loading.value ? (
 					<p>loading</p>
 				) : (
@@ -238,3 +241,4 @@ export const Demo8 = defineComponent(() => {
 		</div>
 	);
 });
+

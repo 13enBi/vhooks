@@ -36,24 +36,7 @@ const useLazyLoad = (target: Target, options: LazyLoadOpts = {}) => {
 		const el = getTargetElement(target) as Ref<HTMLElement>,
 			imgList = Array.from(el.value.querySelectorAll("img")).filter(imgFilter);
 
-		const ob = useIntersectionObserver(imgList, handler);
-
-		if (watch) {
-			useMutationObserver(el, (mutations) => {
-				mutations.forEach((mutation) => {
-					const { type, addedNodes } = mutation;
-					if (type !== "childList") return;
-
-					addedNodes.forEach((node) => {
-						if (node.nodeName === "IMG" && imgFilter(node as HTMLElement)) {
-							ob.observe(node as Element);
-						}
-					});
-				});
-			});
-		}
-
-		function handler(entries: IntersectionObserverEntry[]) {
+		const handler = (entries: IntersectionObserverEntry[]) => {
 			entries.forEach(async (entry) => {
 				const { isIntersecting, target } = entry,
 					src = getAttr(target, dataset);
@@ -75,6 +58,23 @@ const useLazyLoad = (target: Target, options: LazyLoadOpts = {}) => {
 						else setAttr(target, "src", error);
 					}
 				}
+			});
+		};
+
+		const ob = useIntersectionObserver(imgList, handler);
+
+		if (watch) {
+			useMutationObserver(el, (mutations) => {
+				mutations.forEach((mutation) => {
+					const { type, addedNodes } = mutation;
+					if (type !== "childList") return;
+
+					addedNodes.forEach((node) => {
+						if (node.nodeName === "IMG" && imgFilter(node as HTMLElement)) {
+							ob.observe(node as Element);
+						}
+					});
+				});
 			});
 		}
 	});

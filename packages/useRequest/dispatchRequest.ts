@@ -88,6 +88,8 @@ const dispatchRequest = <Params>(
 			runtimeCb.onSuccess = resolve;
 
 			runtimeCb.onError = reject;
+		}).finally(() => {
+			runtimeCb.onError = runtimeCb.onSuccess = NOOP;
 		});
 	};
 
