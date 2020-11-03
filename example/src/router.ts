@@ -1,56 +1,56 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from 'vue-router';
 
-import home from "./view/index.vue";
-import useEventListener from "./view/useEventListener";
-import useEventHub from "./view/useEventHub";
-import useStore from "./view/useStore";
-import debounceWatch from "./view/debounceWatch";
-import throttleWatch from "./view/throttleWatch";
-import useBoolean from "./view/useBoolean";
-import useHover from "./view/useHover";
-import useInterval from "./view/useInterval";
-import useInViewport from "./view/useInViewport";
-import useVirtualList from "./view/useVirtualList";
-import useRequest from "./view/useRequest/index";
-import useLazyLoad from "./view/useLazyLoad";
+import home from './view/index.vue';
+import useEventListener from './view/useEventListener';
+import useEventHub from './view/useEventHub';
+import useStore from './view/useStore';
+import debounceWatch from './view/debounceWatch';
+import throttleWatch from './view/throttleWatch';
+import useBoolean from './view/useBoolean';
+import useHover from './view/useHover';
+import useInterval from './view/useInterval';
+import useInViewport from './view/useInViewport';
+import useVirtualList from './view/useVirtualList';
+import useRequest from './view/useRequest/index';
+import useLazyLoad from './view/useLazyLoad';
 
 const router = createRouter({
 	history: createWebHashHistory(),
 	routes: [
-		{ path: "/", component: home },
+		{ path: '/', component: home },
 		{
-			path: "/useEventListener",
+			path: '/useEventListener',
 			component: useEventListener,
 		},
 		{
-			path: "/useEventHub",
+			path: '/useEventHub',
 			component: useEventHub,
 		},
 		{
-			path: "/useStore",
+			path: '/useStore',
 			component: useStore,
 		},
 		{
-			path: "/debounceWatch",
+			path: '/debounceWatch',
 			component: debounceWatch,
 		},
 		{
-			path: "/throttleWatch",
+			path: '/throttleWatch',
 			component: throttleWatch,
 		},
 		{
-			path: "/useBoolean",
+			path: '/useBoolean',
 			component: useBoolean,
 		},
 		{
-			path: "/useHover",
+			path: '/useHover',
 			component: useHover,
 		},
-		{ path: "/useInterval", component: useInterval },
-		{ path: "/useInViewport", component: useInViewport },
-		{ path: "/useVirtualList", component: useVirtualList },
-		{ path: "/useRequest", component: useRequest },
-		{ path: "/useLazyLoad", component: useLazyLoad },
+		{ path: '/useInterval', component: useInterval },
+		{ path: '/useInViewport', component: useInViewport },
+		{ path: '/useVirtualList', component: useVirtualList },
+		{ path: '/useRequest', component: useRequest },
+		{ path: '/useLazyLoad', component: useLazyLoad },
 	],
 });
 

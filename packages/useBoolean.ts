@@ -1,7 +1,7 @@
-import { ref } from "vue";
-import { isBoolean } from "./utils";
+import { ref } from 'vue';
+import { isBoolean } from './utils';
 
-import { Ref } from "vue";
+import { Ref } from 'vue';
 
 const useBoolean = (initBool = false): [Ref<boolean>, (newBool?: any) => void] => {
 	const bool = ref(initBool);

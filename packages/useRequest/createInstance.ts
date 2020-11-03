@@ -1,11 +1,11 @@
-import axios from "axios";
-import { readonly } from "vue";
-import { isFunction, extend, WrapRef } from "../utils";
-import useCache from "../useCache";
-import defaultConfig from "./default";
-import dispatchRequest from "./dispatchRequest";
+import axios from 'axios';
+import { readonly } from 'vue';
+import { isFunction, extend, WrapRef } from '../utils';
+import useCache from '../useCache';
+import defaultConfig from './default';
+import dispatchRequest from './dispatchRequest';
 
-import { AxiosRequestConfig, RequestConfig, AxiosStatic, RequestResult, DefaultConfig } from "./types";
+import { AxiosRequestConfig, RequestConfig, AxiosStatic, RequestResult, DefaultConfig } from './types';
 
 const createInstance = <Params = string | AxiosRequestConfig, CustomeResult = {}, CustomeConfig = {}>(
 	baseConfig:

@@ -1,9 +1,8 @@
-import { Ref } from "vue";
-import useCache, { CacheKey } from "../useCache";
-import { AsyncConfig, AsyncResult } from "../useAsync";
-import { CreateInstance } from "./createInstance";
-import { WrapRef } from "../utils";
-import { AxiosRequestConfig } from "axios";
+import { Ref } from 'vue';
+import useCache, { CacheKey } from '../useCache';
+import { AsyncConfig, AsyncResult } from '../useAsync';
+import { CreateInstance } from './createInstance';
+import { WrapRef } from '../utils';
 
 export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> = AsyncConfig & {
 	immediate?: boolean;
@@ -18,30 +17,28 @@ export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> 
 	requestMethod?(params: Params): Promise<any>;
 	formatResult?(
 		result: RequestResult<Params, CustomeResult>,
-		config?: Readonly<Omit<RequestConfig<Params, CustomeConfig>, "formatResult">>
+		config?: Readonly<Omit<RequestConfig<Params, CustomeConfig>, 'formatResult'>>
 	): any;
-	axiosConfig?: AxiosRequestConfig;
 } & CustomeConfig;
 
-export type RequestResult<Params = any, CustomeResult = {}> = Omit<AsyncResult, "isError" | "run"> & {
+export type RequestResult<Params = any, CustomeResult = {}> = Omit<AsyncResult, 'isError' | 'run'> & {
 	run: (newParams?: WrapRef<Params>) => Promise<any | undefined | null>;
-	clearCache: ReturnType<typeof useCache>["clearCache"];
+	clearCache: ReturnType<typeof useCache>['clearCache'];
 } & CustomeResult;
 
 export type DefaultConfig = RequestConfig &
 	Required<
 		Pick<
 			RequestConfig,
-			| "requestMethod"
-			| "formatData"
-			| "formatResult"
-			| "leading"
-			| "delay"
-			| "cacheTime"
-			| "cacheStore"
-			| "onSuccess"
-			| "onError"
-			| "axiosConfig"
+			| 'requestMethod'
+			| 'formatData'
+			| 'formatResult'
+			| 'leading'
+			| 'delay'
+			| 'cacheTime'
+			| 'cacheStore'
+			| 'onSuccess'
+			| 'onError'
 		>
 	>;
 
@@ -49,4 +46,4 @@ export type Instance = ReturnType<CreateInstance>;
 
 export { AsyncConfig, AsyncResult };
 
-export { AxiosRequestConfig, AxiosStatic } from "axios";
+export { AxiosRequestConfig, AxiosStatic } from 'axios';

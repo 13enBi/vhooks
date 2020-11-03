@@ -1,13 +1,13 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import { useEventHub } from "../hooks";
+import { useEventHub } from '../hooks';
 
 const Demo = defineComponent(() => {
 	const hub = useEventHub();
 
 	const count = ref(0);
 
-	hub.on("add", () => {
+	hub.on('add', () => {
 		count.value++;
 	});
 
@@ -22,7 +22,7 @@ const Demo = defineComponent(() => {
 const Demo2 = defineComponent(() => {
 	const hub = useEventHub();
 
-	const add = () => hub.emit("add");
+	const add = () => hub.emit('add');
 
 	return () => (
 		<>

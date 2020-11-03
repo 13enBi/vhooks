@@ -1,14 +1,14 @@
-import { defineComponent, ref } from "vue";
-import { useEventListener } from "../hooks";
+import { defineComponent, ref } from 'vue';
+import { useEventListener } from '../hooks';
 
-const style = { width: "150px", height: "150px", border: "1px solid #ddd", lineHeight: "150px", margin: "auto" };
+const style = { width: '150px', height: '150px', border: '1px solid #ddd', lineHeight: '150px', margin: 'auto' };
 
 const Demo = defineComponent(() => {
 	const dom = ref<HTMLElement>(),
 		count = ref(0);
 
 	useEventListener(
-		"click",
+		'click',
 		() => {
 			count.value++;
 		},
@@ -31,7 +31,7 @@ const Demo2 = defineComponent(() => {
 		count = ref(0);
 
 	useEventListener(
-		["mouseleave", "mouseenter"],
+		['mouseleave', 'mouseenter'],
 		() => {
 			count.value++;
 		},
@@ -55,7 +55,7 @@ const Demo3 = defineComponent(() => {
 		count2 = ref(0);
 
 	useEventListener(
-		"click",
+		'click',
 		[
 			() => {
 				count1.value++;
@@ -85,7 +85,7 @@ const Demo4 = defineComponent(() => {
 		count2 = ref(0);
 
 	useEventListener(
-		["mouseenter", "mouseleave"],
+		['mouseenter', 'mouseleave'],
 		[
 			() => {
 				count1.value++;

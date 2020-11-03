@@ -1,7 +1,7 @@
-import { useMutationObserver } from "..";
+import { useMutationObserver } from '..';
 
-describe("useMutationObserver", () => {
-    test("useMutationObserver should defined", () => {
-        expect(useMutationObserver).toBeDefined();
-    });
+describe('useMutationObserver', () => {
+	test('useMutationObserver should defined', () => {
+		expect(useMutationObserver).toBeDefined();
+	});
 });

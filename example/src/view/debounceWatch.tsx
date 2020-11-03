@@ -1,6 +1,6 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import { debounceWatch } from "../hooks";
+import { debounceWatch } from '../hooks';
 
 export default defineComponent(() => {
 	const count = ref(0),
@@ -17,7 +17,7 @@ export default defineComponent(() => {
 	return () => (
 		<>
 			<div>count:{count.value}</div>
-			<div style={{ marginTop: "10px" }}>debounce count:{count2.value}</div>
+			<div style={{ marginTop: '10px' }}>debounce count:{count2.value}</div>
 			<button onClick={() => count.value++}>add count1</button>
 		</>
 	);

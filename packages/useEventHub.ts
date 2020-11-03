@@ -1,3 +1,5 @@
-import mitt from "mitt";
+import mitt from 'mitt';
 
-export default mitt();
+const eventHub = mitt();
+
+export default () => eventHub;

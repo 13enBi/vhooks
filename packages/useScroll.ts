@@ -1,8 +1,8 @@
-import { reactive, onMounted, toRefs } from "vue";
-import { extend } from "./utils";
-import useEventListener from "./useEventListener";
+import { reactive, onMounted, toRefs } from 'vue';
+import { extend } from './utils';
+import useEventListener from './useEventListener';
 
-import { Target } from "./utils";
+import { Target } from './utils';
 
 export interface Position {
 	top: number;
@@ -17,7 +17,7 @@ const useScroll = (target?: Target) => {
 
 	onMounted(() => {
 		useEventListener(
-			"scroll",
+			'scroll',
 
 			(event: Event) => {
 				let { target: currTarget } = event;

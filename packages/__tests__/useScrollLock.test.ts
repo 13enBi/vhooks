@@ -1,7 +1,7 @@
-import { useScrollLock } from "..";
+import { useScrollLock } from '..';
 
-describe("useScrollLock", () => {
-    test("useScrollLock should be defined", () => {
-        expect(useScrollLock).toBeDefined();
-    });
+describe('useScrollLock', () => {
+	test('useScrollLock should be defined', () => {
+		expect(useScrollLock).toBeDefined();
+	});
 });

@@ -1,7 +1,7 @@
-import { useIntersectionObserver } from "..";
+import { useIntersectionObserver } from '..';
 
-describe("useIntersectionObserver", () => {
-    test("useIntersectionObserver should defined", () => {
-        expect(useIntersectionObserver).toBeDefined();
-    });
+describe('useIntersectionObserver', () => {
+	test('useIntersectionObserver should defined', () => {
+		expect(useIntersectionObserver).toBeDefined();
+	});
 });

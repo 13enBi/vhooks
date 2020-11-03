@@ -1,7 +1,7 @@
-import { useMouse } from "..";
+import { useMouse } from '..';
 
-describe("useMouse", () => {
-    test("useMouse should defined", () => {
-        expect(useMouse).toBeDefined();
-    });
+describe('useMouse', () => {
+	test('useMouse should defined', () => {
+		expect(useMouse).toBeDefined();
+	});
 });

@@ -1,7 +1,7 @@
-import { useClickAway } from "..";
+import { useClickAway } from '..';
 
-describe("useClickAway", () => {
-    test("useClickAway should defined", () => {
-        expect(useClickAway).toBeDefined();
-    });
+describe('useClickAway', () => {
+	test('useClickAway should defined', () => {
+		expect(useClickAway).toBeDefined();
+	});
 });

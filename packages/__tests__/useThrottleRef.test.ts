@@ -1,7 +1,7 @@
-import { useThrottleRef } from "..";
+import { useThrottleRef } from '..';
 
-describe("useThrottleRef", () => {
-    test("useThrottleRef should be defined", () => {
-        expect(useThrottleRef).toBeDefined();
-    });
+describe('useThrottleRef', () => {
+	test('useThrottleRef should be defined', () => {
+		expect(useThrottleRef).toBeDefined();
+	});
 });

@@ -1,6 +1,6 @@
-import { toRef, Ref, DeepReadonly } from "vue";
-import { StoreResult, useStore } from ".";
-import { isArray } from "../utils";
+import { toRef, Ref, DeepReadonly } from 'vue';
+import { StoreResult, useStore } from '.';
+import { isArray } from '../utils';
 
 interface Mapper<R extends Record<string, any>> {
 	<Key extends string>(map: Key[]): { [K in Key]: R };
@@ -23,8 +23,8 @@ const useMap = (type: keyof StoreResult, needRef = true) => (map: HelperMap) => 
 	);
 };
 
-export const useState: Mapper<DeepReadonly<Ref<any>>> = useMap("state");
+export const useState: Mapper<DeepReadonly<Ref<any>>> = useMap('state');
 
-export const useGetters: Mapper<DeepReadonly<Ref<any>>> = useMap("getters");
+export const useGetters: Mapper<DeepReadonly<Ref<any>>> = useMap('getters');
 
-export const useMutations: Mapper<(payload: any) => void> = useMap("commit", false);
+export const useMutations: Mapper<(payload: any) => void> = useMap('commit', false);

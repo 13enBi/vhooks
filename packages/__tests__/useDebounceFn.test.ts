@@ -1,7 +1,7 @@
-import { useDebounceFn } from "..";
+import { useDebounceFn } from '..';
 
-describe("useDebounceFn", () => {
-    test("useDebounceFn should defined", () => {
-        expect(useDebounceFn).toBeDefined();
-    });
+describe('useDebounceFn', () => {
+	test('useDebounceFn should defined', () => {
+		expect(useDebounceFn).toBeDefined();
+	});
 });

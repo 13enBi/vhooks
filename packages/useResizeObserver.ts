@@ -1,9 +1,9 @@
-import { onMounted, onUnmounted, reactive, toRefs, watch } from "vue";
-import ResizeObserver from "resize-observer-polyfill";
-import { getTargetElement, extend } from "./utils";
+import { onMounted, onUnmounted, reactive, toRefs, watch } from 'vue';
+import ResizeObserver from 'resize-observer-polyfill';
+import { getTargetElement, extend } from './utils';
 
-import { Target } from "./utils";
-import { Ref } from "vue";
+import { Target } from './utils';
+import { Ref } from 'vue';
 
 interface ElementSize {
 	width: number;

@@ -1,5 +1,5 @@
-import { Ref, isRef, ref, watchEffect } from "vue";
-import { isFunction, hasKey, WrapRef } from ".";
+import { Ref, isRef, ref, watchEffect } from 'vue';
+import { isFunction, hasKey, WrapRef } from '.';
 
 export type BasicTarget<T = HTMLElement | Element> = (() => T) | WrapRef<T | null | undefined>;
 export type TargetElement = HTMLElement | Element | Document | Window | null;
@@ -18,7 +18,7 @@ export function getTargetElement(
 			() => {
 				targetElement.value = target.value;
 			},
-			{ flush: "sync" }
+			{ flush: 'sync' }
 		);
 	} else {
 		targetElement.value = target || defaultElement;
@@ -39,7 +39,7 @@ export const getRootScrollTop = () =>
 	window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
 export const getSrcollTop = (el: Element | Window): number =>
-	hasKey(el, "scrollTop") ? (el as Element).scrollTop : (el as Window).pageYOffset;
+	hasKey(el, 'scrollTop') ? (el as Element).scrollTop : (el as Window).pageYOffset;
 
 export const getElPageTop = (el: Element | Window) =>
 	el === window ? 0 : (el as HTMLElement).getBoundingClientRect().top + getRootScrollTop();

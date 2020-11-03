@@ -1,7 +1,7 @@
-import { usePrevious } from "..";
+import { usePrevious } from '..';
 
-describe("usePrevious", () => {
-    test("usePrevious should defined", () => {
-        expect(usePrevious).toBeDefined();
-    });
+describe('usePrevious', () => {
+	test('usePrevious should defined', () => {
+		expect(usePrevious).toBeDefined();
+	});
 });

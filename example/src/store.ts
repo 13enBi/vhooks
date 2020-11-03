@@ -1,4 +1,4 @@
-import { createStore } from "./hooks";
+import { createStore } from './hooks';
 
 export default createStore({
 	state: { count: 0 },

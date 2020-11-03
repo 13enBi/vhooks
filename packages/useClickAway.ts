@@ -1,9 +1,9 @@
-import { onMounted, computed } from "vue";
-import { getTargetElement, isArray } from "./utils";
-import useEventListener from "./useEventListener";
+import { onMounted, computed } from 'vue';
+import { getTargetElement, isArray } from './utils';
+import useEventListener from './useEventListener';
 
-import { Target } from "./utils";
-import { Ref } from "vue";
+import { Target } from './utils';
+import { Ref } from 'vue';
 
 const useClickAway = (target: Target | Target[], fn: Function) => {
 	onMounted(() => {
@@ -22,7 +22,7 @@ const useClickAway = (target: Target | Target[], fn: Function) => {
 			}
 		};
 
-		useEventListener("click", handleClickAway, { target: document });
+		useEventListener('click', handleClickAway, { target: document });
 	});
 };
 

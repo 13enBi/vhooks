@@ -1,7 +1,7 @@
-import { useAsync } from "..";
+import { useAsync } from '..';
 
-describe("useAsync", () => {
-    test("useAsync should defined", () => {
-        expect(useAsync).toBeDefined();
-    });
+describe('useAsync', () => {
+	test('useAsync should defined', () => {
+		expect(useAsync).toBeDefined();
+	});
 });

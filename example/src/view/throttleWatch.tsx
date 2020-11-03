@@ -1,6 +1,6 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import { throttleWatch } from "../hooks";
+import { throttleWatch } from '../hooks';
 
 export default defineComponent(() => {
 	const count = ref(0),
@@ -17,7 +17,7 @@ export default defineComponent(() => {
 	return () => (
 		<>
 			<div>count:{count.value}</div>
-			<div style={{ marginTop: "10px" }}>throttle count:{count2.value}</div>
+			<div style={{ marginTop: '10px' }}>throttle count:{count2.value}</div>
 			<button onClick={() => count.value++}>add count</button>
 		</>
 	);

@@ -1,5 +1,5 @@
-import throttle from "lodash.throttle";
-import { Func } from "./utils";
+import throttle from 'lodash.throttle';
+import { Func } from './utils';
 
 export interface ThrottleOpts {
 	leading?: boolean;

@@ -1,10 +1,10 @@
-import { computed, onMounted, Ref, unref, watchEffect } from "vue";
-import { extend, getTargetElement, isNumber } from "./utils";
-import useNumRangeRef from "./useNumRangeRef";
-import useThrottleFn from "./useThrottleFn";
-import useEventListener from "./useEventListener";
+import { computed, onMounted, Ref, unref, watchEffect } from 'vue';
+import { extend, getTargetElement, isNumber } from './utils';
+import useNumRangeRef from './useNumRangeRef';
+import useThrottleFn from './useThrottleFn';
+import useEventListener from './useEventListener';
 
-import { Target, WrapRef } from "./utils";
+import { Target, WrapRef } from './utils';
 
 export interface VirtualListParams {
 	container: Target;
@@ -22,7 +22,7 @@ const useVirtualList = (
 	{ overscan = 5, itemHeight }: VirtualListOptions
 ): [Ref<{ data: any; index: number }[]>, (index: number) => void] => {
 	if (!itemHeight) {
-		throw "please enter a valid itemHeight";
+		throw 'please enter a valid itemHeight';
 	}
 
 	const listLength = computed(() => unref(list).length);
@@ -120,10 +120,10 @@ const useVirtualList = (
 
 	onMounted(() => {
 		calculateRange();
-		useEventListener("scroll", scrollHandler, { target: containerEl.value });
+		useEventListener('scroll', scrollHandler, { target: containerEl.value });
 
-		containerEl.value.style.overflow = "auto";
-		wrapEl.value.style.width = "100%";
+		containerEl.value.style.overflow = 'auto';
+		wrapEl.value.style.width = '100%';
 		watchEffect(() => {
 			extend(wrapEl.value.style, {
 				height: `${sumHeight.value - offsetTop.value}px`,

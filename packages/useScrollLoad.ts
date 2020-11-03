@@ -1,9 +1,9 @@
-import { nextTick, onMounted, reactive, toRefs } from "vue";
-import { getTargetElement, getPreCountChild } from "./utils";
-import useIntersectionObserver from "./useIntersectionObserver";
+import { nextTick, onMounted, reactive, toRefs } from 'vue';
+import { getTargetElement, getPreCountChild } from './utils';
+import useIntersectionObserver from './useIntersectionObserver';
 
-import { Ref } from "vue";
-import { Target, Func } from "./utils";
+import { Ref } from 'vue';
+import { Target, Func } from './utils';
 
 interface ScrollLoadOps {
 	preCount?: number;

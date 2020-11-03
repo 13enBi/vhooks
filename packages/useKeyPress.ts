@@ -1,14 +1,14 @@
-import { onMounted } from "vue";
-import useEventListener from "./useEventListener";
-import { isArray, isString } from "./utils";
+import { onMounted } from 'vue';
+import useEventListener from './useEventListener';
+import { isArray, isString } from './utils';
 
-import { Target } from "./utils";
+import { Target } from './utils';
 
 export type KeyPredicate = (event: KeyboardEvent) => boolean;
-export type keyType = KeyboardEvent["keyCode"] | KeyboardEvent["key"];
+export type keyType = KeyboardEvent['keyCode'] | KeyboardEvent['key'];
 export type KeyFilter = keyType | Array<keyType> | ((event: KeyboardEvent) => boolean);
 export type EventHandler = (event?: KeyboardEvent) => void;
-export type keyEvent = "keydown" | "keyup";
+export type keyEvent = 'keydown' | 'keyup';
 
 export type EventOption = {
 	event?: keyEvent;
@@ -28,15 +28,15 @@ const aliasKeyCodeMap = {
 };
 
 const aliasKeyMap = {
-	esc: "Escape",
-	tab: "Tab",
-	enter: "Enter",
-	space: [" ", "space"],
-	up: ["Up", "ArrowUp"],
-	left: ["Left", "ArrowLeft"],
-	right: ["Right", "ArrowRight"],
-	down: ["Down", "ArrowDown"],
-	delete: ["Backspace", "Delete"],
+	esc: 'Escape',
+	tab: 'Tab',
+	enter: 'Enter',
+	space: [' ', 'space'],
+	up: ['Up', 'ArrowUp'],
+	left: ['Left', 'ArrowLeft'],
+	right: ['Right', 'ArrowRight'],
+	down: ['Down', 'ArrowDown'],
+	delete: ['Backspace', 'Delete'],
 };
 
 const modifierKey = {
@@ -48,7 +48,7 @@ const modifierKey = {
 
 const isKeyPress = (event: KeyboardEvent, key: String | Number) => {
 	if (isString(key)) {
-		const keyArr = key.split(".");
+		const keyArr = key.split('.');
 		let keyLen = keyArr.length;
 
 		for (const keyCode of keyArr) {
@@ -79,9 +79,9 @@ const isKeyPress = (event: KeyboardEvent, key: String | Number) => {
 const keyFilter = (key: KeyFilter): KeyPredicate => {
 	const type = typeof key;
 
-	if (type === "function") {
+	if (type === 'function') {
 		return key as KeyPredicate;
-	} else if (type === "string" || type === "number") {
+	} else if (type === 'string' || type === 'number') {
 		return (event) => isKeyPress(event, <string | number>key);
 	} else if (isArray(key)) {
 		return (event) => (<keyType[]>key).some((i) => isKeyPress(event, i));
@@ -91,7 +91,7 @@ const keyFilter = (key: KeyFilter): KeyPredicate => {
 };
 
 const useKeyPress = (key: KeyFilter, callback: EventHandler, options: EventOption = {}) => {
-	const { event = "keydown", target } = options;
+	const { event = 'keydown', target } = options;
 
 	const keyHandler = (event: KeyboardEvent) => {
 		keyFilter(key)(event) && callback(event);

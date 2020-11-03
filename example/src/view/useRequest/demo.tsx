@@ -1,6 +1,6 @@
-import { computed, defineComponent, ref, watchEffect } from "vue";
-import { useRequest, useBoolean } from "../../hooks";
-import { message } from "ant-design-vue";
+import { computed, defineComponent, ref, watchEffect } from 'vue';
+import { useRequest, useBoolean } from '../../hooks';
+import { message } from 'ant-design-vue';
 
 const Mock = (window as any).Mock;
 
@@ -8,8 +8,8 @@ const getUserName = useRequest.create<number | void>({
 	requestMethod(id) {
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				console.log("userid", id);
-				resolve(Mock.mock("@name"));
+				console.log('userid', id);
+				resolve(Mock.mock('@name'));
 			}, 1000);
 		});
 	},
@@ -19,7 +19,7 @@ export const Demo = defineComponent(() => {
 
 	return () => (
 		<>
-			<div>{loading.value ? "loading" : data.value}</div>
+			<div>{loading.value ? 'loading' : data.value}</div>
 		</>
 	);
 });
@@ -38,7 +38,7 @@ const changeUserName = useRequest.create<string>({
 	},
 });
 export const Demo2 = defineComponent(() => {
-	const userName = ref("");
+	const userName = ref('');
 
 	const { loading, run } = changeUserName(userName.value, { immediate: false });
 
@@ -49,7 +49,7 @@ export const Demo2 = defineComponent(() => {
 					onChange={(e: any) => (userName.value = e.target.value)}
 					value={userName.value}
 					placeholder="Please enter username"
-					style={{ width: "240px", marginRight: "16px" }}
+					style={{ width: '240px', marginRight: '16px' }}
 				/>
 				<button
 					disabled={loading.value}
@@ -57,14 +57,14 @@ export const Demo2 = defineComponent(() => {
 					onClick={() =>
 						run(userName.value)
 							.then(() => {
-								message.success("changeUserName success");
+								message.success('changeUserName success');
 							})
 							.catch(() => {
-								message.error("changeUserName fail");
+								message.error('changeUserName fail');
 							})
 					}
 				>
-					{loading.value ? "loading" : "Edit"}
+					{loading.value ? 'loading' : 'Edit'}
 				</button>
 			</div>
 		</>
@@ -79,7 +79,7 @@ export const Demo3 = defineComponent(() => {
 
 	return () => (
 		<>
-			<p>Username: {loading.value ? "loading" : data.value}</p>
+			<p>Username: {loading.value ? 'loading' : data.value}</p>
 			<button type="button" onClick={() => run()}>
 				start
 			</button>
@@ -109,8 +109,8 @@ export const Demo4 = defineComponent(() => {
 	return () => (
 		<>
 			<div>
-				<p>UserId: {loading.value ? "loading" : data.value}</p>
-				<p>Username: {nameLoading.value ? "loading" : nameData.value}</p>
+				<p>UserId: {loading.value ? 'loading' : data.value}</p>
+				<p>Username: {nameLoading.value ? 'loading' : nameData.value}</p>
 			</div>
 		</>
 	);
@@ -120,14 +120,14 @@ const getEmail = useRequest.create<string>({
 	requestMethod(search: string) {
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				console.log("email:", search);
-				resolve(Mock.mock({ "data|5": ["@email"] }).data);
+				console.log('email:', search);
+				resolve(Mock.mock({ 'data|5': ['@email'] }).data);
 			}, 300);
 		});
 	},
 });
 export const Demo5 = defineComponent(() => {
-	const { data, loading, run } = getEmail("email", { debounce: 1000, immediate: false, leading: false });
+	const { data, loading, run } = getEmail('email', { debounce: 1000, immediate: false, leading: false });
 
 	return () => (
 		<>
@@ -135,12 +135,12 @@ export const Demo5 = defineComponent(() => {
 				<p>input quickly to see the effect</p>
 				<input
 					placeholder="Select Emails"
-					onInput={(e: any) => run(e.target.value).then(() => message.success("1229427818"))}
+					onInput={(e: any) => run(e.target.value).then(() => message.success('1229427818'))}
 				/>
 				{loading.value ? (
 					<p>loading</p>
 				) : (
-					<ul style={{ marginTop: "8px", listStyle: "none" }}>
+					<ul style={{ marginTop: '8px', listStyle: 'none' }}>
 						{data.value?.map((i) => (
 							<li key={i}>{i}</li>
 						))}
@@ -152,7 +152,7 @@ export const Demo5 = defineComponent(() => {
 });
 
 export const Demo6 = defineComponent(() => {
-	const { data, loading, run } = getEmail("email", { throttle: 1000, immediate: false, leading: false });
+	const { data, loading, run } = getEmail('email', { throttle: 1000, immediate: false, leading: false });
 
 	return () => (
 		<>
@@ -162,7 +162,7 @@ export const Demo6 = defineComponent(() => {
 				{loading.value ? (
 					<p>loading</p>
 				) : (
-					<ul style={{ marginTop: "8px", listStyle: "none" }}>
+					<ul style={{ marginTop: '8px', listStyle: 'none' }}>
 						{data.value?.map((i) => (
 							<li key={i}>{i}</li>
 						))}
@@ -177,9 +177,9 @@ const getArticle = useRequest.create<number>({
 	requestMethod(id: number) {
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				console.log("articleid", id);
+				console.log('articleid', id);
 				resolve({
-					data: Mock.mock("@paragraph"),
+					data: Mock.mock('@paragraph'),
 					time: new Date().getTime(),
 				});
 			}, 1000);
@@ -192,7 +192,7 @@ export const Demo7 = defineComponent(() => {
 
 	const { data, run } = getArticle(10086, {
 		immediate: false,
-		cacheKey: "article",
+		cacheKey: 'article',
 		cacheTime: 5000,
 	});
 
@@ -221,7 +221,7 @@ export const Demo7 = defineComponent(() => {
 });
 
 export const Demo8 = defineComponent(() => {
-	const text = ref("");
+	const text = ref('');
 
 	const requestName = getUserName(10086);
 	requestName.then((data) => (text.value = data));
@@ -241,4 +241,3 @@ export const Demo8 = defineComponent(() => {
 		</div>
 	);
 });
-

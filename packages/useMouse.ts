@@ -1,6 +1,6 @@
-import { reactive, toRefs } from "vue";
-import useEventListener from "./useEventListener";
-import { extend } from "./utils";
+import { reactive, toRefs } from 'vue';
+import useEventListener from './useEventListener';
+import { extend } from './utils';
 
 export interface CursorState {
 	screenX: number;
@@ -23,7 +23,7 @@ const initState: CursorState = {
 export default () => {
 	const state = reactive(initState);
 
-	useEventListener("mousemove", (event: MouseEvent) => {
+	useEventListener('mousemove', (event: MouseEvent) => {
 		const { screenX, screenY, clientX, clientY, pageX, pageY } = event;
 		extend(state, {
 			screenX,

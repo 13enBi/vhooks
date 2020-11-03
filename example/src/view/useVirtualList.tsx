@@ -1,5 +1,5 @@
-import { defineComponent, ref } from "vue";
-import { useVirtualList } from "../hooks";
+import { defineComponent, ref } from 'vue';
+import { useVirtualList } from '../hooks';
 
 const Demo = defineComponent(() => {
 	const wrap = ref(),
@@ -27,17 +27,17 @@ const Demo = defineComponent(() => {
 				</button>
 			</div>
 
-			<div ref={cont} style={{ height: "300px", overflow: "auto" }}>
+			<div ref={cont} style={{ height: '300px', overflow: 'auto' }}>
 				<div ref={wrap}>
 					{currentList.value.map((ele) => (
 						<div
 							style={{
-								height: "52px",
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-								border: "1px solid #e8e8e8",
-								marginBottom: "8px",
+								height: '52px',
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
+								border: '1px solid #e8e8e8',
+								marginBottom: '8px',
 							}}
 							key={ele.index}
 						>
@@ -80,17 +80,17 @@ const Demo2 = defineComponent(() => {
 				</button>
 			</div>
 
-			<div ref={cont} style={{ height: "500px", overflow: "auto", marginTop: "300px" }}>
+			<div ref={cont} style={{ height: '500px', overflow: 'auto', marginTop: '300px' }}>
 				<div ref={wrap}>
 					{currentList.value.map((ele) => (
 						<div
 							style={{
 								height: `${itemHeight(0, ele.index)}px`,
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-								border: "1px solid #e8e8e8",
-								marginBottom: "8px",
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
+								border: '1px solid #e8e8e8',
+								marginBottom: '8px',
 							}}
 							key={ele.index}
 						>

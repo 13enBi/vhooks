@@ -1,7 +1,7 @@
-import { useLocalStorageRef } from "..";
+import { useLocalStorageRef } from '..';
 
-describe("useLocalStorageRef", () => {
-    test("useLocalStorageRef should defined", () => {
-        expect(useLocalStorageRef).toBeDefined();
-    });
+describe('useLocalStorageRef', () => {
+	test('useLocalStorageRef should defined', () => {
+		expect(useLocalStorageRef).toBeDefined();
+	});
 });

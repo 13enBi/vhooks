@@ -1,8 +1,8 @@
-import { customRef } from "vue";
-import { isFunction } from "./utils";
+import { customRef } from 'vue';
+import { isFunction } from './utils';
 
-import { Ref } from "vue";
-import { Getter } from "./utils";
+import { Ref } from 'vue';
+import { Getter } from './utils';
 
 const getLocal = <T>(key: string, defaultVal: Getter<T>) => {
 	const localVal = localStorage.getItem(key);

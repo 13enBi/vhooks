@@ -1,7 +1,7 @@
-import { useInterval } from "..";
+import { useInterval } from '..';
 
-describe("useInterval", () => {
-    test("useInterval should defined", () => {
-        expect(useInterval).toBeDefined();
-    });
+describe('useInterval', () => {
+	test('useInterval should defined', () => {
+		expect(useInterval).toBeDefined();
+	});
 });

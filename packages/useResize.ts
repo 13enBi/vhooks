@@ -1,6 +1,6 @@
-import { reactive, toRefs } from "vue";
-import useEventListener from "./useEventListener";
-import { extend } from "./utils";
+import { reactive, toRefs } from 'vue';
+import useEventListener from './useEventListener';
+import { extend } from './utils';
 
 const useResize = () => {
 	const size = reactive({
@@ -8,7 +8,7 @@ const useResize = () => {
 		height: NaN,
 	});
 
-	useEventListener("resize", () => {
+	useEventListener('resize', () => {
 		const { clientWidth: width, clientHeight: height } = document.documentElement;
 
 		extend(size, { width, height });

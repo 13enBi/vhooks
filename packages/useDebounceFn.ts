@@ -1,5 +1,5 @@
-import debounce from "lodash.debounce";
-import { Func } from "./utils";
+import debounce from 'lodash.debounce';
+import { Func } from './utils';
 
 export interface DebonunceOpts {
 	leading?: boolean;

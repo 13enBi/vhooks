@@ -1,7 +1,7 @@
-import { useLazyLoad } from "..";
+import { useLazyLoad } from '..';
 
-describe("useLazyLoad", () => {
-    test("useLazyLoad should defined", () => {
-        expect(useLazyLoad).toBeDefined();
-    });
+describe('useLazyLoad', () => {
+	test('useLazyLoad should defined', () => {
+		expect(useLazyLoad).toBeDefined();
+	});
 });

@@ -1,6 +1,6 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import { useInterval } from "../hooks";
+import { useInterval } from '../hooks';
 
 export default defineComponent(() => {
 	const count = ref(0),

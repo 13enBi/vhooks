@@ -1,7 +1,7 @@
-import { ref, onMounted } from "vue";
-import useEventListener from "./useEventListener";
+import { ref, onMounted } from 'vue';
+import useEventListener from './useEventListener';
 
-import { Target } from "./utils";
+import { Target } from './utils';
 
 export interface HoverOpts {
 	enter?: (event?: Event) => any;
@@ -23,7 +23,7 @@ const useHover = (target: Target, options: HoverOpts = {}) => {
 	};
 
 	onMounted(() => {
-		useEventListener(["mouseenter", "mouseleave"], [handleEnter, handleLeave], { target });
+		useEventListener(['mouseenter', 'mouseleave'], [handleEnter, handleLeave], { target });
 	});
 
 	return isHover;

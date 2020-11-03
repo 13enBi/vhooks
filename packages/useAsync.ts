@@ -1,8 +1,8 @@
-import { reactive, toRefs, watch } from "vue";
-import { timeOut, extend, isFunction } from "./utils";
+import { reactive, toRefs, watch } from 'vue';
+import { timeOut, extend, isFunction } from './utils';
 
-import { Deps, Getter } from "./utils";
-import { WatchOptions, Ref } from "vue";
+import { Deps, Getter } from './utils';
+import { WatchOptions, Ref } from 'vue';
 
 export interface AsyncStatus<T = any> {
 	loading: boolean;

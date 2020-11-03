@@ -1,7 +1,7 @@
-import { useEventHub } from "..";
+import { useEventHub } from '..';
 
-describe("useEventHub", () => {
-    test("useEventHub should defined", () => {
-        expect(useEventHub).toBeDefined();
-    });
+describe('useEventHub', () => {
+	test('useEventHub should defined', () => {
+		expect(useEventHub).toBeDefined();
+	});
 });

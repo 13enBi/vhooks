@@ -1,16 +1,16 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import { useHover } from "../hooks";
+import { useHover } from '../hooks';
 const message = {
 	success: console.log,
 };
 
 const style = {
-	margin: "auto",
-	border: "1px solid #aaa",
-	width: "100px",
-	height: "100px",
-	lineHeight: "100px",
+	margin: 'auto',
+	border: '1px solid #aaa',
+	width: '100px',
+	height: '100px',
+	lineHeight: '100px',
 };
 
 export default defineComponent(() => {
@@ -18,10 +18,10 @@ export default defineComponent(() => {
 
 	const isHover = useHover(dom, {
 		enter() {
-			message.success("enter");
+			message.success('enter');
 		},
 		leave() {
-			message.success("leave");
+			message.success('leave');
 		},
 	});
 

@@ -1,8 +1,8 @@
-import { ref, unref, computed } from "vue";
-import { isFunction, isNumber } from "./utils";
+import { ref, unref, computed } from 'vue';
+import { isFunction, isNumber } from './utils';
 
-import { Ref, WritableComputedRef } from "vue";
-import { Noop, WrapRef } from "./utils";
+import { Ref, WritableComputedRef } from 'vue';
+import { Noop, WrapRef } from './utils';
 
 const slice = <T>(arr: T[], index: number, add: T) => {
 	return [...arr.slice(0, index ? index + 1 : void 0), add];

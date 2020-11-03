@@ -1,4 +1,4 @@
-import { reactive, computed, readonly, App, inject } from "vue";
+import { reactive, computed, readonly, App, inject } from 'vue';
 
 export type CreateStoreOpts = { strict: boolean };
 export type GetterTree<T> = Record<string, (state: T) => any>;
@@ -12,7 +12,7 @@ export type StoreCommit<T extends Record<string, any>> = {
 	[key in keyof T]: (payload: Parameters<T[key]>[1]) => void;
 };
 
-export const storeSymbol = Symbol("store");
+export const storeSymbol = Symbol('store');
 
 export const createStore = <S extends object>(
 	{
@@ -61,7 +61,7 @@ export type StoreResult<S = Record<string, any>> = {
 export const useStore = () => {
 	const store = inject<StoreResult>(storeSymbol);
 
-	if (!store) throw Error("useStore is called without provider");
+	if (!store) throw Error('useStore is called without provider');
 
 	return store;
 };

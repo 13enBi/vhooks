@@ -1,6 +1,6 @@
-import { Ref, WatchSource } from "vue";
+import { Ref, WatchSource } from 'vue';
 
-export * from "./dom";
+export * from './dom';
 export type Deps = WatchSource | Readonly<Array<WatchSource<unknown> | object>> | Record<string, any>;
 export type Getter<T> = T | ((...args: any) => T);
 export type PromiseType<P extends Promise<any>> = P extends Promise<infer T> ? T : never;

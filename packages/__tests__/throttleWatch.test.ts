@@ -1,7 +1,7 @@
-import { throttleWatch } from "..";
+import { throttleWatch } from '..';
 
-describe("throttleWatch", () => {
-    test("throttleWatch should defined", () => {
-        expect(throttleWatch).toBeDefined();
-    });
+describe('throttleWatch', () => {
+	test('throttleWatch should defined', () => {
+		expect(throttleWatch).toBeDefined();
+	});
 });

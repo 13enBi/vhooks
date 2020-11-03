@@ -1,7 +1,7 @@
-import { customRef } from "vue";
-import useThrottleFn from "./useThrottleFn";
+import { customRef } from 'vue';
+import useThrottleFn from './useThrottleFn';
 
-import { ThrottleOpts } from "./useThrottleFn";
+import { ThrottleOpts } from './useThrottleFn';
 
 const useThrottleRef = <T>(value: T, wait = 0, options?: ThrottleOpts) =>
 	customRef((track, trigger) => {

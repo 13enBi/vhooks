@@ -1,7 +1,7 @@
-import { useOnceWatch } from "..";
+import { useOnceWatch } from '..';
 
-describe("useOnceWatch", () => {
-    test("useOnceWatch should defined", () => {
-        expect(useOnceWatch).toBeDefined();
-    });
+describe('useOnceWatch', () => {
+	test('useOnceWatch should defined', () => {
+		expect(useOnceWatch).toBeDefined();
+	});
 });

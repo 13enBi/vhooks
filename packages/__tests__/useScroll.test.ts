@@ -1,7 +1,7 @@
-import { useScroll } from "..";
+import { useScroll } from '..';
 
-describe("useScroll", () => {
-    test("useScroll should be defined", () => {
-        expect(useScroll).toBeDefined();
-    });
+describe('useScroll', () => {
+	test('useScroll should be defined', () => {
+		expect(useScroll).toBeDefined();
+	});
 });

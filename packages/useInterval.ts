@@ -1,6 +1,6 @@
-import { isRef, unref, watch } from "vue";
+import { isRef, unref, watch } from 'vue';
 
-import { WrapRef } from "./utils";
+import { WrapRef } from './utils';
 
 const useInterval = <T extends Function>(fn: T, interval: WrapRef<number>, options = { immediate: false }) => {
 	let timer: number;

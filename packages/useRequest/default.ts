@@ -1,8 +1,8 @@
-import axios from "axios";
-import useCache from "../useCache";
-import { NOOP } from "../utils";
+import axios from 'axios';
+import useCache from '../useCache';
+import { NOOP } from '../utils';
 
-import { DefaultConfig, AxiosRequestConfig } from "./types";
+import { DefaultConfig, AxiosRequestConfig } from './types';
 
 const defaultConfig: DefaultConfig = {
 	immediate: true,
@@ -15,7 +15,6 @@ const defaultConfig: DefaultConfig = {
 	cacheStore: useCache(),
 	onSuccess: NOOP,
 	onError: NOOP,
-	axiosConfig: axios.defaults,
 };
 
 export default defaultConfig;

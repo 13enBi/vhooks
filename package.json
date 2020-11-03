@@ -1,6 +1,6 @@
 {
 	"name": "@13enbi/vhooks",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Vue Hooks",
 	"main": "lib/index.js",
 	"module": "esm/index.js",
@@ -23,6 +23,7 @@
 	"scripts": {
 		"dev": "vite",
 		"test": "jest",
+		"format": "prettier --write \"**/*.ts\" \"**/*.tsx\"",
 		"build:cjs": "tsc",
 		"build:es": "tsc -m esNext --outDir esm",
 		"build": "yarn clean && yarn build:cjs && yarn build:es",
@@ -37,13 +38,13 @@
 		"resize-observer-polyfill": "^1.5.1"
 	},
 	"devDependencies": {
-		"@types/axios": "^0.14.0",
-		"@types/lodash.debounce": "^4.0.6",
-		"@types/lodash.throttle": "^4.1.6",
 		"@babel/core": "^7.12.3",
 		"@babel/preset-env": "^7.12.1",
 		"@babel/preset-typescript": "^7.3.3",
+		"@types/axios": "^0.14.0",
 		"@types/jest": "^26.0.14",
+		"@types/lodash.debounce": "^4.0.6",
+		"@types/lodash.throttle": "^4.1.6",
 		"@vue/compiler-sfc": "^3.0.0-rc.1",
 		"@vue/test-utils": "^1.0.0-beta.29",
 		"ant-design-vue": "^2.0.0-beta.10",
@@ -58,6 +59,7 @@
 		"eslint-plugin-prettier": "^3.1.0",
 		"jest": "^26.6.0",
 		"lint-staged": "^9.2.3",
+		"prettier": "^2.1.2",
 		"prismjs": "^1.17.1",
 		"rimraf": "^3.0.0",
 		"typescript": "^4.0.3",

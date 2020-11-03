@@ -1,16 +1,16 @@
-import { watch, computed, unref, isRef } from "vue";
-import { isObject, extend, NOOP, pipe } from "../utils";
-import useAsync from "../useAsync";
-import useDebounceFn from "../useDebounceFn";
-import useThrottleFn from "../useThrottleFn";
-import useInterval from "../useInterval";
+import { watch, computed, unref, isRef } from 'vue';
+import { isObject, extend, NOOP, pipe } from '../utils';
+import useAsync from '../useAsync';
+import useDebounceFn from '../useDebounceFn';
+import useThrottleFn from '../useThrottleFn';
+import useInterval from '../useInterval';
 
-import { DefaultConfig, RequestResult } from "./types";
-import { Func, WrapRef } from "../utils";
+import { DefaultConfig, RequestResult } from './types';
+import { Func, WrapRef } from '../utils';
 
 const wrapRun = (
 	{ originRun, originCancel }: { originRun: () => Promise<any>; originCancel: () => void },
-	config: Pick<DefaultConfig, "debounce" | "delay" | "throttle" | "polling" | "leading">
+	config: Pick<DefaultConfig, 'debounce' | 'delay' | 'throttle' | 'polling' | 'leading'>
 ) => {
 	const { polling, debounce, throttle, delay, leading } = config;
 
