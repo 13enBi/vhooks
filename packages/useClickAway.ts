@@ -5,7 +5,7 @@ import useEventListener from './useEventListener';
 import { Target } from './utils';
 import { Ref } from 'vue';
 
-const useClickAway = (target: Target | Target[], fn: Function) => {
+const useClickAway = (target: Target | Target[], handler: (event?: MouseEvent) => any) => {
 	onMounted(() => {
 		const els = computed(() => {
 			return (isArray(target) ? target.map((i) => getTargetElement(i)) : [getTargetElement(target)]).filter(
@@ -18,7 +18,7 @@ const useClickAway = (target: Target | Target[], fn: Function) => {
 				target = event.target as Node;
 
 			if (nodeList.every((node) => !node.value.contains(target))) {
-				fn(event);
+				handler(event);
 			}
 		};
 

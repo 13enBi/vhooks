@@ -1,4 +1,4 @@
-import { isRef, unref, watch } from 'vue';
+import { unref, watchEffect } from 'vue';
 
 import { WrapRef } from './utils';
 
@@ -14,12 +14,11 @@ const useInterval = <T extends Function>(fn: T, interval: WrapRef<number>, optio
 			clearInterval(timer);
 		};
 
-	if (isRef(interval)) {
-		watch(interval, (newInterval) => {
-			clearInterval(timer);
-			timer = setInterval(fn, newInterval);
-		});
-	}
+	watchEffect((onInvalidate) => {
+		timer = setInterval(fn, unref(interval));
+
+		onInvalidate(stop);
+	});
 
 	options.immediate && run();
 

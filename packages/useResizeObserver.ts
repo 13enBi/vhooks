@@ -44,7 +44,7 @@ const useResizeObserver = (target: Target) => {
 			{ immediate: true }
 		);
 
-		onUnmounted(() => resizeObserver.disconnect());
+		onUnmounted(resizeObserver.disconnect);
 	});
 
 	return toRefs(size);

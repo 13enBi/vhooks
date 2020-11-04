@@ -34,7 +34,7 @@ const useScrollLoad = (target: Target, load: Func, options: ScrollLoadOps = {}) 
 
 			if (!isIntersecting || status.loading) return;
 
-			io.unobserve(target);
+			io.value?.unobserve(target);
 
 			status.loading = true;
 			await load();
@@ -43,7 +43,7 @@ const useScrollLoad = (target: Target, load: Func, options: ScrollLoadOps = {}) 
 			const nextObEl = getPreCountChild(el.value, preCount);
 
 			if (nextObEl && nextObEl != target) {
-				io.observe(nextObEl);
+				io.value?.observe(nextObEl);
 			} else {
 				status.nomore = true;
 			}

@@ -3,9 +3,6 @@ import { getTargetElement, isArray } from './utils';
 
 import { Target, TargetElement, Func } from './utils';
 
-//type EventName = keyof WindowEventMap;
-//type callback = (event: WindowEventMap[EventName]) => any;
-
 interface Options {
 	target?: Target;
 	defaultTarget?: TargetElement;

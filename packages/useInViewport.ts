@@ -1,5 +1,5 @@
 import { getTargetElement } from './utils';
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import useIntersectionObserver from './useIntersectionObserver';
 
 import { Target } from './utils';
@@ -39,9 +39,7 @@ const useInViewport = (
 	const root = options.root;
 	const isInView = ref(initIsView(target, root, options.initVisible));
 
-	onMounted(() =>
-		useIntersectionObserver(target, (entries) => (isInView.value = entries[0].isIntersecting), options)
-	);
+	useIntersectionObserver(target, (entries) => (isInView.value = entries[0].isIntersecting), options);
 
 	return isInView;
 };

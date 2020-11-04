@@ -43,7 +43,7 @@ const useLazyLoad = (target: Target, options: LazyLoadOpts = {}) => {
 
 				if (!isIntersecting || !src) return;
 
-				ob.unobserve(target);
+				ob.value!.unobserve(target);
 
 				setAttr(target, 'src', loading);
 
@@ -64,18 +64,22 @@ const useLazyLoad = (target: Target, options: LazyLoadOpts = {}) => {
 		const ob = useIntersectionObserver(imgList, handler);
 
 		if (watch) {
-			useMutationObserver(el, (mutations) => {
-				mutations.forEach((mutation) => {
-					const { type, addedNodes } = mutation;
-					if (type !== 'childList') return;
+			useMutationObserver(
+				el,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						const { type, addedNodes } = mutation;
+						if (type !== 'childList') return;
 
-					addedNodes.forEach((node) => {
-						if (node.nodeName === 'IMG' && imgFilter(node as HTMLElement)) {
-							ob.observe(node as Element);
-						}
+						addedNodes.forEach((node) => {
+							if (node.nodeName === 'IMG' && imgFilter(node as HTMLElement)) {
+								ob.value?.observe(node as Element);
+							}
+						});
 					});
-				});
-			});
+				},
+				{ childList: true }
+			);
 		}
 	});
 };

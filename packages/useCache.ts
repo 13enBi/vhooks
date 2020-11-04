@@ -8,19 +8,22 @@ const useCache = () => {
 	const getCache = (key: CacheKey) => {
 			return cacheMap.get(key)?.data;
 		},
-		setCache = (key: CacheKey, data: any, cacheTime: number = 3e5) => {
+		setCache = <T>(key: CacheKey, data: T, cacheTime: number | 'infinity' = 3e5): T => {
 			cacheMap.get(key)?.timer && clearTimeout(cacheMap.get(key)?.timer as TimeOut);
 
-			const timer = cacheTime
-				? setTimeout(() => {
-						cacheMap.delete(key);
-				  }, cacheTime)
-				: void 0;
+			const timer =
+				cacheTime !== 'infinity' && cacheTime
+					? setTimeout(() => {
+							cacheMap.delete(key);
+					  }, cacheTime)
+					: void 0;
 
-			return cacheMap.set(key, {
+			cacheMap.set(key, {
 				data,
 				timer,
 			});
+
+			return data;
 		},
 		clearCache = (key: CacheKey) => {
 			key === '*' ? cacheMap.clear() : cacheMap.delete(key);

@@ -1,5 +1,5 @@
-export default {
+module.exports = {
 	optimizeDeps: {
-		include: ["lodash.debounce", "lodash.throttle", "ant-design-vue"],
+		include: ['lodash.debounce', 'lodash.throttle', 'ant-design-vue'],
 	},
 };

@@ -20,7 +20,7 @@ const Demo1 = defineComponent(() => {
 					width: '100px',
 					height: '100px',
 				}}
-				src="https://img.yzcdn.cn/ant-design-vue/cat.jpeg"
+				src="https://img.yzcdn.cn/vant/apple-5.jpg"
 				ref={dom}
 			></img>
 		</>
@@ -47,7 +47,7 @@ const Demo2 = defineComponent(() => {
 						width: '100px',
 						height: '100px',
 					}}
-					src="https://img.yzcdn.cn/ant-design-vue/cat.jpeg"
+					src="https://img.yzcdn.cn/vant/apple-5.jpg"
 					ref={dom}
 				></img>
 			</div>

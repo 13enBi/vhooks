@@ -1,6 +1,6 @@
 {
 	"name": "@13enbi/vhooks",
-	"version": "0.0.2",
+	"version": "0.0.1-beta.1",
 	"description": "Vue Hooks",
 	"main": "lib/index.js",
 	"module": "esm/index.js",
@@ -23,7 +23,7 @@
 	"scripts": {
 		"dev": "vite",
 		"test": "jest",
-		"format": "prettier --write \"**/*.ts\" \"**/*.tsx\"",
+		"format": "prettier --write \"./packages/*.ts\" ",
 		"build:cjs": "tsc",
 		"build:es": "tsc -m esNext --outDir esm",
 		"build": "yarn clean && yarn build:cjs && yarn build:es",

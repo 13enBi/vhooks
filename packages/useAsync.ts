@@ -57,7 +57,14 @@ const userAsync = <T>(service: () => Promise<T>, options: WatchOptions & AsyncCo
 			}
 
 			if (id === currId) {
-				isFunction(formatData) && (handleStatus.data = formatData(handleStatus.data));
+				if (isFunction(formatData)) {
+					try {
+						handleStatus.data = formatData(handleStatus.data);
+					} catch (error) {
+						handleStatus.isError = true;
+						handleStatus.error = error;
+					}
+				}
 
 				delay && (await timeOut(delay));
 

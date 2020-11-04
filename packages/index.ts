@@ -34,3 +34,4 @@ export { useStore, createStore, useState, useGetters, useMutations } from './use
 export { default as useThrottleFn } from './useThrottleFn';
 export { default as useThrottleRef } from './useThrottleRef';
 export { default as useVirtualList } from './useVirtualList';
+export { default as useMounted } from './useMounted';
