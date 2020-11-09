@@ -27,4 +27,4 @@ export const useState: Mapper<DeepReadonly<Ref<any>>> = useMap('state');
 
 export const useGetters: Mapper<DeepReadonly<Ref<any>>> = useMap('getters');
 
-export const useMutations: Mapper<(payload: any) => void> = useMap('commit', false);
+export const useMutations: Mapper<(payload?: any) => void> = useMap('commit', false);

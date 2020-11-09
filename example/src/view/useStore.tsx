@@ -18,9 +18,9 @@ const State = defineComponent(() => {
 });
 
 const Getters = defineComponent(() => {
-	const { getCount } = useGetters(['getCount']);
+	const { get } = useGetters(['get']);
 
-	return () => div(`getters.getCount :${getCount.value}`);
+	return () => div(`get:${get.value}`);
 });
 
 const Mutations = defineComponent(() => {

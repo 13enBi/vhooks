@@ -13,7 +13,7 @@ export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> 
 	ready?: Ref<any>[];
 	cacheStore?: ReturnType<typeof useCache>;
 	cacheKey?: CacheKey;
-	cacheTime?: number;
+	cacheTime?: number | 'infinity';
 	requestMethod?(params: Params): Promise<any>;
 	formatResult?(
 		result: RequestResult<Params, CustomeResult>,

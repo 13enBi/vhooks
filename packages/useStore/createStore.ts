@@ -1,8 +1,18 @@
 import { reactive, computed, readonly, App, inject } from 'vue';
 
 export type CreateStoreOpts = { strict: boolean };
-export type GetterTree<T> = Record<string, (state: T) => any>;
-export type MutationsTree<T> = Record<string, (state: T, payload?: any) => void>;
+export type GetterTree<T> = Record<string, (state: T, getters: Readonly<Record<string, any>>) => any>;
+export type MutationsTree<T> = Record<
+	string,
+	(
+		context?: {
+			state: T;
+			dispatch: (type: string, payload: unknown) => any;
+			getters: Readonly<Record<string, any>>;
+		},
+		payload?: any
+	) => void
+>;
 
 export type StoreGetter<T extends Record<string, any>> = {
 	[key in keyof T]: ReturnType<T[key]>;
@@ -28,13 +38,18 @@ export const createStore = <S extends object>(
 ) => {
 	const state = reactive(_state) as S;
 
-	const getters = Object.entries(_getters).reduce(
-		(getter, [key, value]) => ((getter[key] = computed(() => value(state))), getter),
-		{} as any
+	const getters = reactive(
+		Object.entries(_getters).reduce(
+			(getter, [key, value]) => ((getter[key] = computed(() => value(state, getters))), getter),
+			{} as any
+		)
 	);
 
+	const dispatch = (type: string, payload: unknown) => commit[type](payload);
 	const commit = Object.entries(_mutations).reduce(
-		(mutate, [key, value]) => ((mutate[key] = (payload: unknown) => value(state, payload)), mutate),
+		(mutate, [key, value]) => (
+			(mutate[key] = (payload: unknown) => value({ state, dispatch, getters }, payload)), mutate
+		),
 		{} as any
 	);
 

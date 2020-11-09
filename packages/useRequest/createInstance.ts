@@ -7,14 +7,18 @@ import dispatchRequest from './dispatchRequest';
 
 import { AxiosRequestConfig, RequestConfig, AxiosStatic, RequestResult, DefaultConfig } from './types';
 
-const createInstance = <Params = string | AxiosRequestConfig, CustomeResult = {}, CustomeConfig = {}>(
+const createInstance = <Params = string | AxiosRequestConfig, CustomeResult = {}, CustomeConfig extends object = {}>(
 	baseConfig:
 		| RequestConfig<Params, CustomeConfig, CustomeResult>
-		| ((axios?: AxiosStatic) => RequestConfig<Params, CustomeConfig, CustomeResult>)
+		| ((axios?: AxiosStatic) => RequestConfig<Params, CustomeConfig, CustomeResult> | void)
 ) => {
-	baseConfig = isFunction(baseConfig) ? baseConfig(axios) : baseConfig;
+	if (isFunction(baseConfig)) {
+		baseConfig = baseConfig(axios) || ({} as RequestConfig<Params, CustomeConfig, CustomeResult>);
+	}
 
-	baseConfig.cacheStore === void 0 && (baseConfig.cacheStore = useCache());
+	if (baseConfig.cacheStore === void 0) {
+		baseConfig.cacheStore = useCache();
+	}
 
 	baseConfig = { ...defaultConfig, ...baseConfig } as DefaultConfig & CustomeConfig;
 
