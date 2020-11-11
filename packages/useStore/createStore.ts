@@ -1,4 +1,5 @@
 import { reactive, computed, readonly, App, inject } from 'vue';
+import { extend } from '../utils';
 
 export type CreateStoreOpts = { strict: boolean };
 export type GetterTree<T> = Record<string, (state: T, getters: Readonly<Record<string, any>>) => any>;
@@ -54,17 +55,12 @@ export const createStore = <S extends object>(
 	);
 
 	const store = {
-		state: strict ? readonly(state) : state,
-		getters: reactive(getters),
+		state: strict ? readonly(state) : state, 
+		getters,
 		commit,
 	};
 
-	return {
-		...store,
-		install(app: App) {
-			app.provide(storeSymbol, store);
-		},
-	};
+	return extend(store, { install: (app: App) => app.provide(storeSymbol, store) });
 };
 
 export type StoreResult<S = Record<string, any>> = {
