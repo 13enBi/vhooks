@@ -1,11 +1,16 @@
 import { ref, unref, computed } from 'vue';
 import { isFunction, isNumber } from './utils';
+import useNumRangeRef from './useNumRangeRef';
 
 import { Ref, WritableComputedRef } from 'vue';
 import { Noop, WrapRef } from './utils';
 
 const slice = <T>(arr: T[], index: number, add: T) => {
-	return [...arr.slice(0, index ? index + 1 : void 0), add];
+	if (index === 0) {
+		return [arr[0], add];
+	}
+
+	return [...arr.slice(0, index + 1), add];
 };
 
 const useSnapshot = <T>(
@@ -21,7 +26,7 @@ const useSnapshot = <T>(
 	}
 ] => {
 	const snapshots = ref([unref(initVal)]) as Ref<T[]>,
-		index = ref(0);
+		index = useNumRangeRef(0, { min: 0, max: computed(() => snapshots.value.length - 1) });
 
 	const get = () => snapshots.value[index.value],
 		set = (next: T) => {
@@ -40,10 +45,7 @@ const useSnapshot = <T>(
 	const go = (step: number = 0) => {
 			if (!isNumber(step)) step = parseInt(step);
 
-			const nextIdx = index.value + step,
-				len = snapshots.value.length - 1;
-
-			index.value = nextIdx < 0 ? 0 : nextIdx > len ? len : nextIdx;
+			index.value = index.value + step;
 		},
 		forward = () => go(1),
 		backward = () => go(-1),

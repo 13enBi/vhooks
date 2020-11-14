@@ -5,7 +5,7 @@ import { WrapRef } from './utils';
 
 const useNumRangeRef = (num: number, { max, min }: { max: WrapRef<number>; min: WrapRef<number> }): Ref<number> => {
 	if (max === void 0 && min === void 0) {
-		console.warn('must provide Maximum and Minimum');
+		console.warn('must provide Maximum or Minimum');
 
 		return ref(num);
 	}
@@ -14,7 +14,7 @@ const useNumRangeRef = (num: number, { max, min }: { max: WrapRef<number>; min: 
 		return {
 			get: () => (track(), num),
 			set(newNum) {
-				num = Math.min(unref(max), Math.max(unref(min), newNum));
+				num = Math.min(unref(max) ?? Infinity, Math.max(unref(min) ?? -Infinity, newNum));
 				trigger();
 			},
 		};
