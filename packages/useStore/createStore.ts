@@ -6,7 +6,7 @@ export type GetterTree<T> = Record<string, (state: T, getters: Readonly<Record<s
 export type MutationsTree<T> = Record<
 	string,
 	(
-		context?: {
+		context: {
 			state: T;
 			dispatch: (type: string, payload: unknown) => any;
 			getters: Readonly<Record<string, any>>;
