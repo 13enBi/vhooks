@@ -1,6 +1,6 @@
 {
 	"name": "@13enbi/vhooks",
-	"version": "0.0.3-beta.2",
+	"version": "0.0.3-beta.3",
 	"description": "Vue Hooks",
 	"main": "lib/index.js",
 	"module": "esm/index.js",
@@ -27,7 +27,8 @@
 		"build:cjs": "tsc",
 		"build:es": "tsc -m esNext --outDir esm",
 		"build": "yarn clean && yarn build:cjs && yarn build:es",
-		"clean": "rimraf lib esm"
+		"clean": "rimraf lib esm",
+		"publish:beta": "node ./script/publish-beta.ts"
 	},
 	"dependencies": {
 		"axios": "^0.20.0",
