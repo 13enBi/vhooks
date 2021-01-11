@@ -44,7 +44,7 @@ const dispatchRequest = <Params>(
 		throttle,
 		polling,
 		leading,
-	}: DefaultConfig
+	}: Omit<DefaultConfig, 'immediate' | 'formatResult'>
 ): RequestResult<Params> => {
 	const runtimeCb: { onSuccess: Func; onError: Func } = {
 		onSuccess: NOOP,

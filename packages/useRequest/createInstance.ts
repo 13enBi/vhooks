@@ -26,12 +26,11 @@ const createInstance = <Params = string | AxiosRequestConfig, CustomeResult = {}
 		params: WrapRef<Params>,
 		config: Partial<RequestConfig<Params, CustomeConfig, CustomeResult>> = {}
 	) => {
-		const __config = { ...baseConfig, ...config } as DefaultConfig;
+		const {immediate, formatResult,...__config} = { ...baseConfig, ...config } as DefaultConfig;
 
 		const result = dispatchRequest<Params>(params, __config);
 
-		const { run } = result,
-			{ immediate, formatResult } = __config;
+		const { run } = result;
 
 		return extend(
 			immediate ? run() : Promise.resolve(null),
