@@ -56,23 +56,23 @@ const userAsync = <T>(service: () => Promise<T>, options: WatchOptions & AsyncCo
 					if (isFunction(formatData)) {
 						handleStatus.data = formatData(handleStatus.data);
 					}
-					
+
 					delay && (await timeOut(delay));
 
 					handleStatus.loading = false;
-
-					if (handleStatus.isError) {
-						isFunction(onError) && onError(handleStatus.error);
-					} else {
-						isFunction(onSuccess) && onSuccess(handleStatus.data);
-					}
-
-					extend(status, handleStatus);
 				}
 			} catch (error) {
 				handleStatus.isError = true;
 				handleStatus.error = error;
 			}
+
+			if (handleStatus.isError) {
+				isFunction(onError) && onError(handleStatus.error);
+			} else {
+				isFunction(onSuccess) && onSuccess(handleStatus.data);
+			}
+
+			extend(status, handleStatus);
 		},
 		run = async () => (await handler(), status.data),
 		cancel = () => {
