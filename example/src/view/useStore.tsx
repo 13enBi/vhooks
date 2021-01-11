@@ -12,7 +12,7 @@ const Store = defineComponent(() => {
 });
 
 const State = defineComponent(() => {
-	const { count } = useState(['count']);
+	const { count, wuhu } = useState(['count', 'wuhu']);
 
 	return () => div(`state.count:${count.value} `);
 });
