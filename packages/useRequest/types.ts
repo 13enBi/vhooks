@@ -8,6 +8,7 @@ export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> 
 	immediate?: boolean;
 	polling?: number;
 	debounce?: number;
+	delay?: number;
 	throttle?: number;
 	leading?: boolean;
 	ready?: Ref<any>[];
@@ -15,6 +16,7 @@ export type RequestConfig<Params = any, CustomeConfig = {}, CustomeResult = {}> 
 	cacheKey?: CacheKey;
 	cacheTime?: number | 'infinity';
 	requestMethod?(params: Params): Promise<any>;
+	formatData?(data: any): any;
 	formatResult?(
 		result: RequestResult<Params, CustomeResult>,
 		config?: Readonly<Omit<RequestConfig<Params, CustomeConfig>, 'formatResult'>>

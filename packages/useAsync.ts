@@ -1,5 +1,5 @@
 import { reactive, toRefs, watch } from 'vue';
-import { timeOut, extend, isFunction } from './utils';
+import { extend, isFunction } from './utils';
 
 import { Deps, Getter } from './utils';
 import { WatchOptions, Ref } from 'vue';
@@ -15,9 +15,7 @@ export interface AsyncConfig {
 	initialData?: Getter<any>;
 	onSuccess?(data?: any): void;
 	onError?(error?: any): void;
-	delay?: number;
 	deps?: Deps;
-	formatData?(data: any): any;
 }
 
 export interface AsyncResult {
@@ -38,7 +36,7 @@ const initStatus: AsyncStatus = {
 };
 
 const userAsync = <T>(service: () => Promise<T>, options: WatchOptions & AsyncConfig = {}): AsyncResult => {
-	const { onError, onSuccess, immediate, delay, deps, initialData, formatData, ...watchOpts } = options;
+	const { onError, onSuccess, immediate, deps, initialData, ...watchOpts } = options;
 
 	const status = reactive({ ...initStatus, data: isFunction(initialData) ? initialData() : initialData });
 
@@ -51,28 +49,22 @@ const userAsync = <T>(service: () => Promise<T>, options: WatchOptions & AsyncCo
 
 			try {
 				handleStatus.data = await service();
-
-				if (id === currId) {
-					if (isFunction(formatData)) {
-						handleStatus.data = formatData(handleStatus.data);
-					}
-
-					delay && (await timeOut(delay));
-
-					handleStatus.loading = false;
-				}
 			} catch (error) {
 				handleStatus.isError = true;
 				handleStatus.error = error;
 			}
 
-			if (handleStatus.isError) {
-				isFunction(onError) && onError(handleStatus.error);
-			} else {
-				isFunction(onSuccess) && onSuccess(handleStatus.data);
-			}
+			if (id === currId) {
+				handleStatus.loading = false;
 
-			extend(status, handleStatus);
+				if (handleStatus.isError) {
+					isFunction(onError) && onError(handleStatus.error);
+				} else {
+					isFunction(onSuccess) && onSuccess(handleStatus.data);
+				}
+
+				extend(status, handleStatus);
+			}
 		},
 		run = async () => (await handler(), status.data),
 		cancel = () => {
